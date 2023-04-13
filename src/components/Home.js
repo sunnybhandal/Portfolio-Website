@@ -7,7 +7,7 @@ export default function Home() {
         justifyContent={{ base: "center", md: "space-between" }}
         mt="50px"
         wrap="wrap-reverse"
-        mx={{ base: "15%", sm: "15%", md: "15%", lg: "16%" }}
+        mx={{ base: "10%", sm: "15%", md: "15%", lg: "16%" }}
       >
         <Stack
           spacing={2}

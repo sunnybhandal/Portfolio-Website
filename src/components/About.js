@@ -31,7 +31,7 @@ export default function About() {
       id="about"
       position="relative"
       mt="50px"
-      mx={{ base: "15%", sm: "15%", md: "15%", lg: "16%" }}
+      mx={{ base: "10%", sm: "15%", md: "15%", lg: "16%" }}
     >
       <Text
         align="center"
@@ -92,47 +92,48 @@ export default function About() {
         </Flex>
       </Stack>
       {openChallengeModal ? (
-        <Stack
-          position="absolute"
-          left={{ base: "0%", sm: "2%", md: "10%", lg: "6%" }}
-          top="0"
-          wrap="wrap"
-          color="#fff"
-          width={{ base: "280px", sm: "380px", md: "450px", lg: "550px" }}
-          bg="#2D2A2A"
-          borderRadius="20px"
-          border="1px solid blue"
-          textAlign="center"
-          ref={modalRef}
-        >
-          <Flex position="relative" justify="center">
-            <Box
-              boxSize={{ base: "16px", sm: "20px" }}
-              position="absolute"
-              left="15px"
-              top={{ base: "16px", md: "20px" }}
-              cursor="pointer"
-              onClick={() => setOpenChallengeModal(false)}
-            >
-              <Image src="./img/x-icon.png" alt="" />
-            </Box>
-            <Text
-              fontSize={{ base: "lg", sm: "xl", md: "2xl" }}
-              fontWeight="semibold"
-              p="10px"
-            >
-              Marathon
-            </Text>
-          </Flex>
-          <Text
-            p={{ base: "10px", sm: "15px", md: "20px" }}
-            fontSize={{ base: "sm", sm: "md", md: "xl", lg: "2xl" }}
+        <Box justifyContent="center" display="flex" left="50%">
+          <Stack
+            position="absolute"
+            bottom="16"
+            wrap="wrap"
+            color="#fff"
+            width={{ base: "325px", sm: "350px", md: "450px", lg: "550px" }}
+            bg="#2D2A2A"
+            borderRadius="20px"
+            border="2px solid #89CFF0"
+            textAlign="center"
+            ref={modalRef}
           >
-            42.2 km (26 miles). A marathon has been on and off my bucket list
-            for the past few years. I thought this would be the year, so here we
-            go!
-          </Text>
-        </Stack>
+            <Flex position="relative" justify="center">
+              <Box
+                boxSize={{ base: "16px", sm: "20px", md: "24px" }}
+                position="absolute"
+                left="15px"
+                top={{ base: "16px", md: "20px" }}
+                cursor="pointer"
+                onClick={() => setOpenChallengeModal(false)}
+              >
+                <Image src="./img/x-icon.png" alt="" />
+              </Box>
+              <Text
+                fontSize={{ base: "lg", sm: "2xl", md: "3xl" }}
+                fontWeight="semibold"
+                p="10px"
+              >
+                Marathon
+              </Text>
+            </Flex>
+            <Text
+              p={{ base: "10px", sm: "15px", md: "20px" }}
+              fontSize={{ base: "sm", sm: "md", md: "xl", lg: "2xl" }}
+            >
+              42.2 km (26 miles). A marathon has been on and off my bucket list
+              for the past few years. I thought this would be the year, so here
+              we go!
+            </Text>
+          </Stack>
+        </Box>
       ) : (
         <div></div>
       )}

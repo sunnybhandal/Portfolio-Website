@@ -6,7 +6,7 @@ export default function Navbar() {
       p="10px"
       alignItems="center"
       justify="space-between"
-      mx={{ base: "15%", sm: "15%", md: "15%", lg: "16%" }}
+      mx={{ base: "10%", sm: "15%", md: "15%", lg: "16%" }}
     >
       <Box>
         <a href="#home">
@@ -19,7 +19,7 @@ export default function Navbar() {
       </Box>
       <HStack
         fontSize={{ base: "20px", md: "xl" }}
-        spacing={{ base: "20px", sm: "25px" }}
+        spacing={{ base: "15px", sm: "25px" }}
         color="#fff"
       >
         <a href="#home">
