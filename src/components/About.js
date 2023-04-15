@@ -176,7 +176,7 @@ export default function About() {
               p={{ base: "10px", sm: "15px", md: "20px" }}
               fontSize={{ base: "sm", sm: "md", md: "xl", lg: "2xl" }}
             >
-              This year it's a Marathon!
+              This year it's a marathon!
             </Text>
             <Text
               p={{ base: "10px", sm: "15px", md: "20px" }}
