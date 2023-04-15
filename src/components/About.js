@@ -1,19 +1,35 @@
-import { Box, Flex, Image, Stack, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  HStack,
+  Image,
+  ListItem,
+  OrderedList,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
 import { useState, useEffect, useRef } from "react";
 
 export default function About() {
   const [openChallengeModal, setOpenChallengeModal] = useState(false);
+  const [openMovieModal, setOpenMovieModal] = useState(false);
   const modalRef = useRef(null);
 
   const challengeModal = () => {
     setOpenChallengeModal(true);
-    console.log("hi", openChallengeModal);
+    setOpenMovieModal(false);
+  };
+
+  const movieModal = () => {
+    setOpenMovieModal(true);
+    setOpenChallengeModal(false);
   };
 
   useEffect(() => {
     function handleClickOutside(event) {
       if (modalRef.current && !modalRef.current.contains(event.target)) {
         setOpenChallengeModal(false);
+        setOpenMovieModal(false);
       }
     }
 
@@ -65,16 +81,14 @@ export default function About() {
             mine. Kananaskis and the Banff area become a 2nd home for me come
             summer time.
           </Text>
-          <Text align="center">
-            Hit the challenge button below to see where my focus is currently
-            at.
-          </Text>
         </Stack>
+      </Stack>
+      <HStack justify="center" spacing={3}>
         <Flex
           width={{ base: "190px", sm: "215px", md: "240px", lg: "290px" }}
           height={{ base: "40px", sm: "45px", md: "50px", lg: "55px" }}
           bg="#89CFF0"
-          _hover={{ opacity: ".8" }}
+          _hover={{ bg: "#2D2A2A", border: "2px solid #89CFF0" }}
           borderRadius="20px"
           justify="center"
           align="center"
@@ -83,15 +97,101 @@ export default function About() {
         >
           <Box
             fontWeight="semibold"
-            fontSize={{ base: "lg", sm: "xl", md: "2xl", lg: "3xl" }}
+            fontSize={{ base: "md", sm: "lg", md: "2xl", lg: "3xl" }}
             textAlign="center"
             color="#fff"
           >
             Current Challenge
           </Box>
         </Flex>
-      </Stack>
+        <Flex
+          width={{ base: "180px", sm: "215px", md: "240px", lg: "290px" }}
+          height={{ base: "40px", sm: "45px", md: "50px", lg: "55px" }}
+          bg="#2D2A2A"
+          border="2px solid #89CFF0"
+          // _hover={{ opacity: ".8" }}
+          _hover={{ bg: "#89CFF0" }}
+          borderRadius="20px"
+          justify="center"
+          align="center"
+          cursor="pointer"
+          onClick={() => movieModal()}
+        >
+          <Box
+            fontWeight="semibold"
+            fontSize={{ base: "md", sm: "lg", md: "2xl", lg: "3xl" }}
+            textAlign="center"
+            color="#fff"
+          >
+            Movies
+          </Box>
+        </Flex>
+      </HStack>
+
       {openChallengeModal ? (
+        <Box justifyContent="center" display="flex" left="50%">
+          <Stack
+            position="absolute"
+            bottom="16"
+            wrap="wrap"
+            color="#fff"
+            spacing={-3}
+            width={{ base: "325px", sm: "350px", md: "450px", lg: "550px" }}
+            bg="#2D2A2A"
+            borderRadius="20px"
+            border="2px solid #89CFF0"
+            textAlign="center"
+            ref={modalRef}
+          >
+            <Flex position="relative" justify="center">
+              <Box
+                boxSize={{ base: "16px", sm: "20px", md: "24px" }}
+                position="absolute"
+                left="15px"
+                top={{ base: "16px", md: "20px" }}
+                cursor="pointer"
+                onClick={() => setOpenChallengeModal(false)}
+                color="#89CFF0"
+              >
+                <Image src="./img/x-icon.png" alt="" />
+              </Box>
+              <Text
+                fontSize={{ base: "lg", sm: "2xl", md: "3xl" }}
+                fontWeight="semibold"
+                p="10px"
+              >
+                The Challenge
+              </Text>
+            </Flex>
+            <Text
+              p={{ base: "10px", sm: "15px", md: "20px" }}
+              fontSize={{ base: "sm", sm: "md", md: "xl", lg: "2xl" }}
+            >
+              I love challenging myself and enjoy getting uncomfortable because
+              this leads to a lot of personal growth and builds resilience. I do
+              this by setting a goal for the year which involves selecting a
+              difficult task to work towards.
+            </Text>
+            <Text
+              p={{ base: "10px", sm: "15px", md: "20px" }}
+              fontSize={{ base: "sm", sm: "md", md: "xl", lg: "2xl" }}
+            >
+              This year it's a Marathon!
+            </Text>
+            <Text
+              p={{ base: "10px", sm: "15px", md: "20px" }}
+              fontSize={{ base: "sm", sm: "md", md: "xl", lg: "2xl" }}
+            >
+              42.2 km (26 miles). A marathon has been on and off my bucket list
+              for the past few years. I thought this would be the year, so here
+              we go!
+            </Text>
+          </Stack>
+        </Box>
+      ) : (
+        <div></div>
+      )}
+      {openMovieModal ? (
         <Box justifyContent="center" display="flex" left="50%">
           <Stack
             position="absolute"
@@ -112,7 +212,7 @@ export default function About() {
                 left="15px"
                 top={{ base: "16px", md: "20px" }}
                 cursor="pointer"
-                onClick={() => setOpenChallengeModal(false)}
+                onClick={() => setOpenMovieModal(false)}
               >
                 <Image src="./img/x-icon.png" alt="" />
               </Box>
@@ -121,17 +221,59 @@ export default function About() {
                 fontWeight="semibold"
                 p="10px"
               >
-                Marathon
+                My Top 10 Movies
               </Text>
             </Flex>
-            <Text
-              p={{ base: "10px", sm: "15px", md: "20px" }}
-              fontSize={{ base: "sm", sm: "md", md: "xl", lg: "2xl" }}
-            >
-              42.2 km (26 miles). A marathon has been on and off my bucket list
-              for the past few years. I thought this would be the year, so here
-              we go!
-            </Text>
+            <Box align="center">
+              <OrderedList
+                p={{ base: "15px", sm: "20px", md: "25px" }}
+                fontSize={{ base: "sm", sm: "md", md: "xl", lg: "2xl" }}
+                mb="10px"
+              >
+                <ListItem>Interstellar</ListItem>
+                <ListItem>Inception</ListItem>
+                <ListItem>The Dark Knight Rises</ListItem>
+                <ListItem>The Dark Knight</ListItem>
+                <ListItem>Inglorious Basterds</ListItem>
+                <ListItem>The Wolf of Wall Street</ListItem>
+                <ListItem>The Shawshank Redemption</ListItem>
+                <ListItem>Joker</ListItem>
+                <ListItem>NightCrawler</ListItem>
+                <ListItem>The Curious Case of Benjamin Button</ListItem>
+              </OrderedList>
+              <a
+                href="https://www.imdb.com/user/ur68350159/ratings?sort=your_rating,desc&ratingFilter=0&mode=detail&ref_=undefined&lastPosition=0"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Flex
+                  width={{
+                    base: "190px",
+                    sm: "215px",
+                    md: "240px",
+                    lg: "290px",
+                  }}
+                  height={{ base: "40px", sm: "45px", md: "50px", lg: "55px" }}
+                  bg="#89CFF0"
+                  _hover={{ bg: "#2D2A2A", border: "2px solid #89CFF0" }}
+                  mb="15px"
+                  borderRadius="20px"
+                  justify="center"
+                  align="center"
+                  cursor="pointer"
+                  onClick={() => movieModal()}
+                >
+                  <Box
+                    fontWeight="semibold"
+                    fontSize={{ base: "lg", sm: "xl", md: "2xl", lg: "3xl" }}
+                    textAlign="center"
+                    color="#fff"
+                  >
+                    My IMDB
+                  </Box>
+                </Flex>
+              </a>
+            </Box>
           </Stack>
         </Box>
       ) : (
