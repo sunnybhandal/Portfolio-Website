@@ -2,45 +2,55 @@ import {
   Box,
   Flex,
   HStack,
-  Image,
+  ChakraProvider,
+  extendTheme,
   ListItem,
   OrderedList,
   Stack,
   Text,
+  ModalOverlay,
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalCloseButton,
+  ModalBody,
+  ModalFooter,
+  Button,
 } from "@chakra-ui/react";
-import { useState, useEffect, useRef } from "react";
+import { useDisclosure } from "@chakra-ui/react";
+import React from "react";
 
 export default function About() {
-  const [openChallengeModal, setOpenChallengeModal] = useState(false);
-  const [openMovieModal, setOpenMovieModal] = useState(false);
-  const modalRef = useRef(null);
+  const OverlayChallenge = () => <ModalOverlay backdropFilter="blur(10px)" />;
+  const OverlayMovie = () => <ModalOverlay backdropFilter="blur(10px)" />;
 
-  const challengeModal = () => {
-    setOpenChallengeModal(true);
-    setOpenMovieModal(false);
-  };
+  const {
+    isOpen: isOpenChallenge,
+    onOpen: onOpenChallenge,
+    onClose: onCloseChallenge,
+  } = useDisclosure();
 
-  const movieModal = () => {
-    setOpenMovieModal(true);
-    setOpenChallengeModal(false);
-  };
+  const {
+    isOpen: isOpenMovie,
+    onOpen: onOpenMovie,
+    onClose: onCloseMovie,
+  } = useDisclosure();
+  const [overlay, setOverlay] = React.useState(<OverlayChallenge />);
 
-  useEffect(() => {
-    function handleClickOutside(event) {
-      if (modalRef.current && !modalRef.current.contains(event.target)) {
-        setOpenChallengeModal(false);
-        setOpenMovieModal(false);
-      }
-    }
-
-    // Add event listener to detect clicks outside of the div
-    document.addEventListener("mousedown", handleClickOutside);
-
-    // Remove event listener on cleanup
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [modalRef]);
+  const theme = extendTheme({
+    components: {
+      Modal: {
+        baseStyle: (props) => ({
+          dialog: {
+            width: ["80%", "72.6%"],
+            bg: "#2D2A2A",
+            borderRadius: "20px",
+            border: "2px solid #89CFF0",
+          },
+        }),
+      },
+    },
+  });
 
   return (
     <Box
@@ -93,7 +103,10 @@ export default function About() {
           justify="center"
           align="center"
           cursor="pointer"
-          onClick={() => challengeModal()}
+          onClick={() => {
+            setOverlay(<OverlayChallenge />);
+            onOpenChallenge();
+          }}
         >
           <Box
             fontWeight="semibold"
@@ -109,13 +122,15 @@ export default function About() {
           height={{ base: "40px", sm: "45px", md: "50px", lg: "55px" }}
           bg="#2D2A2A"
           border="2px solid #89CFF0"
-          // _hover={{ opacity: ".8" }}
           _hover={{ bg: "#89CFF0" }}
           borderRadius="20px"
           justify="center"
           align="center"
           cursor="pointer"
-          onClick={() => movieModal()}
+          onClick={() => {
+            setOverlay(<OverlayMovie />);
+            onOpenMovie();
+          }}
         >
           <Box
             fontWeight="semibold"
@@ -128,106 +143,53 @@ export default function About() {
         </Flex>
       </HStack>
 
-      {openChallengeModal ? (
-        <Box justifyContent="center" display="flex" left="50%">
-          <Stack
-            position="absolute"
-            bottom="16"
-            wrap="wrap"
-            color="#fff"
-            spacing={-3}
-            width={{ base: "325px", sm: "350px", md: "450px", lg: "550px" }}
-            bg="#2D2A2A"
-            borderRadius="20px"
-            border="2px solid #89CFF0"
-            textAlign="center"
-            ref={modalRef}
-          >
-            <Flex position="relative" justify="center">
-              <Box
-                boxSize={{ base: "16px", sm: "20px", md: "24px" }}
-                position="absolute"
-                left="15px"
-                top={{ base: "16px", md: "20px" }}
-                cursor="pointer"
-                onClick={() => setOpenChallengeModal(false)}
-                color="#89CFF0"
-              >
-                <Image src="./img/x-icon.png" alt="" />
-              </Box>
+      {/* Current Challenge Modal */}
+      <ChakraProvider theme={theme}>
+        <Modal isCentered isOpen={isOpenChallenge} onClose={onCloseChallenge}>
+          {overlay}
+          <ModalContent color="#fff" pb="3px">
+            <ModalCloseButton borderRadius="10px" _hover={{ bg: "#89CFF0" }} />
+            <ModalHeader>The Challenge</ModalHeader>
+            <ModalBody>
               <Text
-                fontSize={{ base: "lg", sm: "2xl", md: "3xl" }}
-                fontWeight="semibold"
-                p="10px"
+                p={{ base: "2px", sm: "5px" }}
+                fontSize={{ base: "sm", sm: "md", md: "xl" }}
               >
-                The Challenge
+                I love challenging myself and enjoy getting uncomfortable
+                because this leads to a lot of personal growth and builds
+                resilience. I do this by setting a goal for the year which
+                involves selecting a difficult task to work towards.
               </Text>
-            </Flex>
-            <Text
-              p={{ base: "10px", sm: "15px", md: "20px" }}
-              fontSize={{ base: "sm", sm: "md", md: "xl", lg: "2xl" }}
-            >
-              I love challenging myself and enjoy getting uncomfortable because
-              this leads to a lot of personal growth and builds resilience. I do
-              this by setting a goal for the year which involves selecting a
-              difficult task to work towards.
-            </Text>
-            <Text
-              p={{ base: "10px", sm: "15px", md: "20px" }}
-              fontSize={{ base: "sm", sm: "md", md: "xl", lg: "2xl" }}
-            >
-              This year it's a marathon!
-            </Text>
-            <Text
-              p={{ base: "10px", sm: "15px", md: "20px" }}
-              fontSize={{ base: "sm", sm: "md", md: "xl", lg: "2xl" }}
-            >
-              42.2 km (26 miles). A marathon has been on and off my bucket list
-              for the past few years. I thought this would be the year, so here
-              we go!
-            </Text>
-          </Stack>
-        </Box>
-      ) : (
-        <div></div>
-      )}
-      {openMovieModal ? (
-        <Box justifyContent="center" display="flex" left="50%">
-          <Stack
-            position="absolute"
-            bottom="16"
-            wrap="wrap"
-            color="#fff"
-            width={{ base: "325px", sm: "350px", md: "450px", lg: "550px" }}
-            bg="#2D2A2A"
-            borderRadius="20px"
-            border="2px solid #89CFF0"
-            textAlign="center"
-            ref={modalRef}
-          >
-            <Flex position="relative" justify="center">
-              <Box
-                boxSize={{ base: "16px", sm: "20px", md: "24px" }}
-                position="absolute"
-                left="15px"
-                top={{ base: "16px", md: "20px" }}
-                cursor="pointer"
-                onClick={() => setOpenMovieModal(false)}
-              >
-                <Image src="./img/x-icon.png" alt="" />
-              </Box>
               <Text
-                fontSize={{ base: "lg", sm: "2xl", md: "3xl" }}
-                fontWeight="semibold"
-                p="10px"
+                p={{ base: "2px", sm: "5px" }}
+                fontSize={{ base: "sm", sm: "md", md: "xl" }}
               >
-                My Top 10 Movies
+                This year it's a marathon!
               </Text>
-            </Flex>
-            <Box align="center">
+              <Text
+                p={{ base: "2px", sm: "5px" }}
+                fontSize={{ base: "sm", sm: "md", md: "xl" }}
+              >
+                42.2 km (26 miles). A marathon has been on and off my bucket
+                list for the past few years. I thought this would be the year,
+                so here we go!
+              </Text>
+            </ModalBody>
+          </ModalContent>
+        </Modal>
+      </ChakraProvider>
+
+      {/* Movie Modal */}
+      <ChakraProvider theme={theme}>
+        <Modal isCentered isOpen={isOpenMovie} onClose={onCloseMovie}>
+          {overlay}
+          <ModalContent color="#fff">
+            <ModalCloseButton borderRadius="10px" _hover={{ bg: "#89CFF0" }} />
+            <ModalHeader>My Top 10 Movies</ModalHeader>
+            <ModalBody>
               <OrderedList
-                p={{ base: "15px", sm: "20px", md: "25px" }}
-                fontSize={{ base: "sm", sm: "md", md: "xl", lg: "2xl" }}
+                p="5px"
+                fontSize={{ base: "md", sm: "md", md: "xl" }}
                 mb="10px"
               >
                 <ListItem>Interstellar</ListItem>
@@ -241,44 +203,36 @@ export default function About() {
                 <ListItem>NightCrawler</ListItem>
                 <ListItem>The Curious Case of Benjamin Button</ListItem>
               </OrderedList>
+            </ModalBody>
+            <ModalFooter justifyContent="center">
               <a
                 href="https://www.imdb.com/user/ur68350159/ratings?sort=your_rating,desc&ratingFilter=0&mode=detail&ref_=undefined&lastPosition=0"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Flex
+                <Button
                   width={{
-                    base: "190px",
-                    sm: "215px",
-                    md: "240px",
-                    lg: "290px",
+                    base: "160px",
+                    sm: "190px",
                   }}
-                  height={{ base: "40px", sm: "45px", md: "50px", lg: "55px" }}
+                  height={{ base: "40px", sm: "45px" }}
                   bg="#89CFF0"
-                  _hover={{ bg: "#2D2A2A", border: "2px solid #89CFF0" }}
-                  mb="15px"
                   borderRadius="20px"
                   justify="center"
+                  _hover={{ bg: "#2D2A2A", border: "2px solid #89CFF0" }}
                   align="center"
-                  cursor="pointer"
-                  onClick={() => movieModal()}
+                  fontWeight="semibold"
+                  fontSize={{ base: "xl", sm: "2xl" }}
+                  textAlign="center"
+                  color="#fff"
                 >
-                  <Box
-                    fontWeight="semibold"
-                    fontSize={{ base: "lg", sm: "xl", md: "2xl", lg: "3xl" }}
-                    textAlign="center"
-                    color="#fff"
-                  >
-                    My IMDB
-                  </Box>
-                </Flex>
+                  My IMDB
+                </Button>
               </a>
-            </Box>
-          </Stack>
-        </Box>
-      ) : (
-        <div></div>
-      )}
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
+      </ChakraProvider>
     </Box>
   );
 }

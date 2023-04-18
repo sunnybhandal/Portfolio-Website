@@ -38,7 +38,7 @@ export default function Location() {
         color="#fff"
         mt="50px"
       >
-        Made by Sunny Bhandal with React, Chakra UI, and Figma (V1)
+        Made by Sunny Bhandal with React, Chakra UI, and Figma
       </Text>
     </Box>
   );
