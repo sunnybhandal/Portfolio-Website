@@ -93,7 +93,7 @@ export default function About() {
           </Text>
         </Stack>
       </Stack>
-      <HStack justify="center" spacing={3}>
+      <HStack justify="center" spacing={3} mt="10px">
         <Flex
           width={{ base: "190px", sm: "215px", md: "240px", lg: "290px" }}
           height={{ base: "40px", sm: "45px", md: "50px", lg: "55px" }}
