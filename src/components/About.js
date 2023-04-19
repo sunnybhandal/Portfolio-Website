@@ -42,7 +42,7 @@ export default function About() {
       Modal: {
         baseStyle: (props) => ({
           dialog: {
-            width: ["80%", "72.6%"],
+            width: ["87%", "72.6%"],
             bg: "#2D2A2A",
             borderRadius: "20px",
             border: "2px solid #89CFF0",
@@ -188,7 +188,7 @@ export default function About() {
             <ModalHeader>My Top 10 Movies</ModalHeader>
             <ModalBody>
               <OrderedList
-                p="5px"
+                p={{ base: "0px", sm: "5px" }}
                 fontSize={{ base: "md", sm: "md", md: "xl" }}
                 mb="10px"
               >
