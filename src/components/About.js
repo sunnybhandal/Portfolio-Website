@@ -114,7 +114,7 @@ export default function About() {
             textAlign="center"
             color="#fff"
           >
-            Current Challenge
+            My Challenge
           </Box>
         </Flex>
         <Flex
@@ -138,7 +138,7 @@ export default function About() {
             textAlign="center"
             color="#fff"
           >
-            Movies
+            Fav Movies
           </Box>
         </Flex>
       </HStack>
@@ -196,7 +196,7 @@ export default function About() {
                 <ListItem>Inception</ListItem>
                 <ListItem>The Dark Knight Rises</ListItem>
                 <ListItem>The Dark Knight</ListItem>
-                <ListItem>Inglorious Basterds</ListItem>
+                <ListItem>Inglourious Basterds</ListItem>
                 <ListItem>The Wolf of Wall Street</ListItem>
                 <ListItem>The Shawshank Redemption</ListItem>
                 <ListItem>Joker</ListItem>
