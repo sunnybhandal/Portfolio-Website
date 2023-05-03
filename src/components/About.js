@@ -97,8 +97,15 @@ export default function About() {
         <Flex
           width={{ base: "190px", sm: "215px", md: "240px", lg: "290px" }}
           height={{ base: "40px", sm: "45px", md: "50px", lg: "55px" }}
+          fontWeight="semibold"
+          fontSize={{ base: "md", sm: "lg", md: "2xl", lg: "3xl" }}
           bg="#89CFF0"
-          _hover={{ bg: "#2D2A2A", border: "2px solid #89CFF0" }}
+          textColor="#fff"
+          _hover={{
+            bg: "#2D2A2A",
+            border: "2px solid #89CFF0",
+            textColor: "#89CFF0",
+          }}
           borderRadius="20px"
           justify="center"
           align="center"
@@ -108,21 +115,17 @@ export default function About() {
             onOpenChallenge();
           }}
         >
-          <Box
-            fontWeight="semibold"
-            fontSize={{ base: "md", sm: "lg", md: "2xl", lg: "3xl" }}
-            textAlign="center"
-            color="#fff"
-          >
-            My Challenge
-          </Box>
+          <Box textAlign="center">My Challenge</Box>
         </Flex>
         <Flex
           width={{ base: "180px", sm: "215px", md: "240px", lg: "290px" }}
           height={{ base: "40px", sm: "45px", md: "50px", lg: "55px" }}
+          fontWeight="semibold"
+          fontSize={{ base: "md", sm: "lg", md: "2xl", lg: "3xl" }}
           bg="#2D2A2A"
           border="2px solid #89CFF0"
-          _hover={{ bg: "#89CFF0" }}
+          textColor="#89CFF0"
+          _hover={{ bg: "#89CFF0", textColor: "#fff" }}
           borderRadius="20px"
           justify="center"
           align="center"
@@ -132,14 +135,7 @@ export default function About() {
             onOpenMovie();
           }}
         >
-          <Box
-            fontWeight="semibold"
-            fontSize={{ base: "md", sm: "lg", md: "2xl", lg: "3xl" }}
-            textAlign="center"
-            color="#fff"
-          >
-            Fav Movies
-          </Box>
+          Fav Movies
         </Flex>
       </HStack>
 
