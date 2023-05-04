@@ -215,7 +215,11 @@ export default function About() {
                   bg="#89CFF0"
                   borderRadius="20px"
                   justify="center"
-                  _hover={{ bg: "#2D2A2A", border: "2px solid #89CFF0" }}
+                  _hover={{
+                    bg: "#2D2A2A",
+                    border: "2px solid #89CFF0",
+                    color: "#89CFF0",
+                  }}
                   align="center"
                   fontWeight="semibold"
                   fontSize={{ base: "xl", sm: "2xl" }}
