@@ -162,7 +162,7 @@ export default function About() {
                 fontSize={{ base: "sm", sm: "md", md: "xl" }}
               >
                 This year it was a marathon (42.2 km)! <br />
-                Ran on June 17th 2023
+                Ran on June 17th 2023.
               </Text>
               <Text
                 p={{ base: "2px", sm: "3px" }}
