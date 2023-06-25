@@ -16,6 +16,7 @@ import {
   ModalBody,
   ModalFooter,
   Button,
+  Checkbox,
 } from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/react";
 import React from "react";
@@ -56,7 +57,7 @@ export default function About() {
     <Box
       id="about"
       position="relative"
-      mt="50px"
+      mt={{ base: "10px", md: "50px" }}
       mx={{ base: "10%", sm: "15%", md: "15%", lg: "16%" }}
     >
       <Text
@@ -148,27 +149,26 @@ export default function About() {
             <ModalHeader>The Challenge</ModalHeader>
             <ModalBody>
               <Text
-                p={{ base: "2px", sm: "5px" }}
+                p={{ base: "2px", sm: "3px" }}
                 fontSize={{ base: "sm", sm: "md", md: "xl" }}
               >
-                I love challenging myself and enjoy getting uncomfortable
-                because this leads to a lot of personal growth and builds
-                resilience. I do this by setting a goal for the year which
-                involves selecting a difficult task to work towards.
+                I love challenging myself and enjoy being uncomfortable because
+                this leads to a lot of personal growth and builds resilience. I
+                do this by setting a difficult goal that involves building a
+                plan and executing that plan after months of training.
               </Text>
               <Text
-                p={{ base: "2px", sm: "5px" }}
+                p={{ base: "2px", sm: "3px" }}
                 fontSize={{ base: "sm", sm: "md", md: "xl" }}
               >
-                This year it's a marathon!
+                This year it was a marathon (42.2 km)! <br />
+                Ran on June 17th 2023
               </Text>
               <Text
-                p={{ base: "2px", sm: "5px" }}
+                p={{ base: "2px", sm: "3px" }}
                 fontSize={{ base: "sm", sm: "md", md: "xl" }}
               >
-                42.2 km (26 miles). A marathon has been on and off my bucket
-                list for the past few years. I thought this would be the year,
-                so here we go!
+                Next up, Front Splits.
               </Text>
             </ModalBody>
           </ModalContent>

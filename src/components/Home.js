@@ -12,7 +12,7 @@ export default function Home() {
         <Stack
           spacing={2}
           align={{ base: "center", md: "normal" }}
-          p={{ base: "10px", sm: "30px", md: "0px" }}
+          p={{ base: "10px", sm: "31px", md: "0px" }}
         >
           <Text
             fontSize={{ base: "2xl", md: "3xl" }}
@@ -28,7 +28,7 @@ export default function Home() {
           >
             <Button
               width="10px"
-              height={{ base: "40px", md: "40px" }}
+              height="40px"
               color="#fff"
               colorScheme="linkedin"
               fontStyle="myriad"

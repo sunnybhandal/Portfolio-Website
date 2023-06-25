@@ -4,7 +4,7 @@ export default function Location() {
   return (
     <Box
       id="location"
-      mt="50px"
+      mt={{ base: "20px", md: "30px" }}
       mx={{ base: "10%", sm: "15%", md: "15%", lg: "16%" }}
     >
       <Text
