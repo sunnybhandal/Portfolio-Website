@@ -58,7 +58,7 @@ export default function About() {
     <Box
       id="about"
       position="relative"
-      mt={{ base: "10px", md: "50px" }}
+      mt={{ base: "25px", md: "40px" }}
       mx={{ base: "10%", sm: "15%", md: "15%", lg: "16%" }}
     >
       <Text
