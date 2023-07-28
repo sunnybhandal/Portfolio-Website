@@ -17,18 +17,19 @@ import {
   ModalFooter,
   Button,
   Checkbox,
+  Link,
 } from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/react";
 import React from "react";
 
 export default function About() {
-  const OverlayChallenge = () => <ModalOverlay backdropFilter="blur(10px)" />;
+  const OverlayHike = () => <ModalOverlay backdropFilter="blur(10px)" />;
   const OverlayMovie = () => <ModalOverlay backdropFilter="blur(10px)" />;
 
   const {
-    isOpen: isOpenChallenge,
-    onOpen: onOpenChallenge,
-    onClose: onCloseChallenge,
+    isOpen: isOpenHike,
+    onOpen: onOpenHike,
+    onClose: onCloseHike,
   } = useDisclosure();
 
   const {
@@ -36,7 +37,7 @@ export default function About() {
     onOpen: onOpenMovie,
     onClose: onCloseMovie,
   } = useDisclosure();
-  const [overlay, setOverlay] = React.useState(<OverlayChallenge />);
+  const [overlay, setOverlay] = React.useState(<OverlayHike />);
 
   const theme = extendTheme({
     components: {
@@ -77,11 +78,11 @@ export default function About() {
         >
           <Text>
             I'm extremely passionate about health & fitness. Most of my free
-            time over the past decade has gone towards studying nutrition, human
-            physiology, and different aspects of resistance training. I'm
-            addicted to learning and podcasts/ebooks/YouTube have been life
-            changing for me as they've introduced me to some of the smartest
-            professionals in various industries.
+            time goes towards studying nutrition, human physiology, and
+            different aspects of resistance training. I'm addicted to learning
+            and podcasts/ebooks/YouTube have been life changing for me as
+            they've introduced me to some of the smartest professionals in
+            various industries.
           </Text>
           <Text>
             My other passions are sports and hiking. I grew up playing
@@ -112,11 +113,11 @@ export default function About() {
           align="center"
           cursor="pointer"
           onClick={() => {
-            setOverlay(<OverlayChallenge />);
-            onOpenChallenge();
+            setOverlay(<OverlayHike />);
+            onOpenHike();
           }}
         >
-          <Box textAlign="center">My Challenge</Box>
+          Top 10 Hikes
         </Flex>
         <Flex
           width={{ base: "180px", sm: "215px", md: "240px", lg: "290px" }}
@@ -136,40 +137,124 @@ export default function About() {
             onOpenMovie();
           }}
         >
-          Fav Movies
+          Top 10 Movies
         </Flex>
       </HStack>
 
-      {/* Current Challenge Modal */}
+      {/* Top 10 Hikes Modal */}
       <ChakraProvider theme={theme}>
-        <Modal isCentered isOpen={isOpenChallenge} onClose={onCloseChallenge}>
+        <Modal isCentered isOpen={isOpenHike} onClose={onCloseHike}>
           {overlay}
           <ModalContent color="#fff" pb="3px">
             <ModalCloseButton borderRadius="10px" _hover={{ bg: "#89CFF0" }} />
-            <ModalHeader>The Challenge</ModalHeader>
+            <ModalHeader>My Top 10 Hikes</ModalHeader>
             <ModalBody>
-              <Text
-                p={{ base: "2px", sm: "3px" }}
-                fontSize={{ base: "sm", sm: "md", md: "xl" }}
+              <OrderedList
+                p={{ base: "0px", sm: "5px" }}
+                fontSize={{ base: "md", sm: "md", md: "xl" }}
+                mb="10px"
               >
-                I love challenging myself and enjoy being uncomfortable because
-                this leads to a lot of personal growth and builds resilience. I
-                do this by setting a difficult goal that involves building a
-                plan and executing that plan after months of training.
-              </Text>
-              <Text
-                p={{ base: "2px", sm: "3px" }}
-                fontSize={{ base: "sm", sm: "md", md: "xl" }}
-              >
-                This year it was a marathon (42.2 km)! <br />
-                Ran on June 17th 2023.
-              </Text>
-              <Text
-                p={{ base: "2px", sm: "3px" }}
-                fontSize={{ base: "sm", sm: "md", md: "xl" }}
-              >
-                Next up, Front Splits.
-              </Text>
+                <ListItem>
+                  <Link
+                    href="https://www.alltrails.com/trail/canada/alberta/wasootch-peak?search=true"
+                    isExternal
+                    textDecoration="none"
+                    _hover={{ textColor: "#89CFF0" }}
+                  >
+                    Wasootch Peak
+                  </Link>
+                </ListItem>
+                <ListItem>
+                  <Link
+                    href="https://www.alltrails.com/trail/canada/alberta/mount-yamnuska-traverse-and-west-col-descent"
+                    isExternal
+                    textDecoration="none"
+                    _hover={{ textColor: "#89CFF0" }}
+                  >
+                    Mount Yamnuska
+                  </Link>
+                </ListItem>
+                <ListItem>
+                  <Link
+                    href="https://www.alltrails.com/trail/canada/alberta/mount-temple"
+                    isExternal
+                    textDecoration="none"
+                    _hover={{ textColor: "#89CFF0" }}
+                  >
+                    Mount Temple
+                  </Link>
+                </ListItem>
+                <ListItem>
+                  <Link
+                    href="https://www.alltrails.com/trail/canada/alberta/east-end-of-rundle-eeor"
+                    isExternal
+                    textDecoration="none"
+                    _hover={{ textColor: "#89CFF0" }}
+                  >
+                    East End of Rundle
+                  </Link>
+                </ListItem>
+                <ListItem>
+                  <Link
+                    href="https://www.alltrails.com/trail/canada/alberta/cirque-peak-via-helen-lake-trail"
+                    isExternal
+                    textDecoration="none"
+                    _hover={{ textColor: "#89CFF0" }}
+                  >
+                    Cirque Peak
+                  </Link>
+                </ListItem>
+                <ListItem>
+                  <Link
+                    href="https://www.alltrails.com/trail/canada/alberta/tent-ridge-horseshoe"
+                    isExternal
+                    textDecoration="none"
+                    _hover={{ textColor: "#89CFF0" }}
+                  >
+                    Tent Ridge Horseshoe
+                  </Link>
+                </ListItem>
+                <ListItem>
+                  <Link
+                    href="https://www.alltrails.com/trail/canada/alberta/crypt-lake-trail-loop"
+                    isExternal
+                    textDecoration="none"
+                    _hover={{ textColor: "#89CFF0" }}
+                  >
+                    Crypt Lake
+                  </Link>
+                </ListItem>
+                <ListItem>
+                  <Link
+                    href="https://www.alltrails.com/trail/canada/alberta/mount-lipsett"
+                    isExternal
+                    textDecoration="none"
+                    _hover={{ textColor: "#89CFF0" }}
+                  >
+                    Mount Lipsett
+                  </Link>
+                </ListItem>
+                <ListItem>
+                  <Link
+                    href="https://www.alltrails.com/trail/canada/alberta/mount-lady-macdonald-trail"
+                    isExternal
+                    textDecoration="none"
+                    _hover={{ textColor: "#89CFF0" }}
+                  >
+                    Lady MacDonald
+                  </Link>
+                </ListItem>
+                <ListItem>
+                  <Link
+                    href="https://www.alltrails.com/trail/canada/alberta/devils-thumb-via-lake-agnes-trail"
+                    isExternal
+                    textDecoration="none"
+                    _hover={{ textColor: "#89CFF0" }}
+                  >
+                    Devil's Thumb
+                  </Link>
+                </ListItem>
+              </OrderedList>
             </ModalBody>
           </ModalContent>
         </Modal>
