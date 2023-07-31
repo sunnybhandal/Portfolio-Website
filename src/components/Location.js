@@ -95,25 +95,7 @@ export default function Location() {
           {overlay}
           <ModalContent color="#fff">
             <ModalCloseButton borderRadius="10px" _hover={{ bg: "#89CFF0" }} />
-            <ModalHeader>Top 10 YYC Activities</ModalHeader>
-            <ModalBody>
-              <OrderedList
-                p={{ base: "0px", sm: "5px" }}
-                fontSize={{ base: "md", sm: "md", md: "xl" }}
-                mb="10px"
-              >
-                <ListItem>Spike </ListItem>
-                <ListItem>Inception</ListItem>
-                <ListItem>The Dark Knight Rises</ListItem>
-                <ListItem>The Dark Knight</ListItem>
-                <ListItem>Inglourious Basterds</ListItem>
-                <ListItem>The Wolf of Wall Street</ListItem>
-                <ListItem>The Shawshank Redemption</ListItem>
-                <ListItem>Joker</ListItem>
-                <ListItem>NightCrawler</ListItem>
-                <ListItem>The Curious Case of Benjamin Button</ListItem>
-              </OrderedList>
-            </ModalBody>
+            <ModalHeader>It's A Wonderful City</ModalHeader>
           </ModalContent>
         </Modal>
       </ChakraProvider>
