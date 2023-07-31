@@ -186,16 +186,6 @@ export default function About() {
                 </ListItem>
                 <ListItem>
                   <Link
-                    href="https://www.alltrails.com/trail/canada/alberta/east-end-of-rundle-eeor"
-                    isExternal
-                    textDecoration="none"
-                    _hover={{ textColor: "#89CFF0" }}
-                  >
-                    East End of Rundle
-                  </Link>
-                </ListItem>
-                <ListItem>
-                  <Link
                     href="https://www.alltrails.com/trail/canada/alberta/cirque-peak-via-helen-lake-trail"
                     isExternal
                     textDecoration="none"
@@ -204,6 +194,17 @@ export default function About() {
                     Cirque Peak
                   </Link>
                 </ListItem>
+                <ListItem>
+                  <Link
+                    href="https://www.alltrails.com/trail/canada/alberta/east-end-of-rundle-eeor"
+                    isExternal
+                    textDecoration="none"
+                    _hover={{ textColor: "#89CFF0" }}
+                  >
+                    East End of Rundle
+                  </Link>
+                </ListItem>
+
                 <ListItem>
                   <Link
                     href="https://www.alltrails.com/trail/canada/alberta/tent-ridge-horseshoe"

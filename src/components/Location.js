@@ -1,6 +1,46 @@
-import { Box, Image, Text } from "@chakra-ui/react";
+import {
+  Box,
+  ChakraProvider,
+  ListItem,
+  OrderedList,
+  Text,
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalCloseButton,
+  ModalBody,
+  extendTheme,
+  Image,
+  ModalOverlay,
+} from "@chakra-ui/react";
+import { useDisclosure } from "@chakra-ui/react";
+import React from "react";
 
 export default function Location() {
+  const {
+    isOpen: isOpenLocation,
+    onOpen: onOpenLocation,
+    onClose: onCloseLocation,
+  } = useDisclosure();
+
+  const OverlayLocation = () => <ModalOverlay backdropFilter="blur(10px)" />;
+
+  const [overlay, setOverlay] = React.useState(<OverlayLocation />);
+
+  const theme = extendTheme({
+    components: {
+      Modal: {
+        baseStyle: (props) => ({
+          dialog: {
+            width: ["87%", "72.6%"],
+            bg: "#2D2A2A",
+            borderRadius: "20px",
+            border: "2px solid #89CFF0",
+          },
+        }),
+      },
+    },
+  });
   return (
     <Box
       id="location"
@@ -15,7 +55,15 @@ export default function Location() {
       >
         Current Location
       </Text>
-      <Box mt="25px" align="center">
+      <Box
+        mt="25px"
+        align="center"
+        cursor="pointer"
+        onClick={() => {
+          setOverlay(<OverlayLocation />);
+          onOpenLocation();
+        }}
+      >
         <Image
           width="100%"
           borderRadius="20px"
@@ -40,6 +88,35 @@ export default function Location() {
       >
         Made by Sunny Bhandal with React, Chakra UI, and Figma
       </Text>
+
+      {/* Movie Modal */}
+      <ChakraProvider theme={theme}>
+        <Modal isCentered isOpen={isOpenLocation} onClose={onCloseLocation}>
+          {overlay}
+          <ModalContent color="#fff">
+            <ModalCloseButton borderRadius="10px" _hover={{ bg: "#89CFF0" }} />
+            <ModalHeader>Top 10 YYC Activities</ModalHeader>
+            <ModalBody>
+              <OrderedList
+                p={{ base: "0px", sm: "5px" }}
+                fontSize={{ base: "md", sm: "md", md: "xl" }}
+                mb="10px"
+              >
+                <ListItem>Spike </ListItem>
+                <ListItem>Inception</ListItem>
+                <ListItem>The Dark Knight Rises</ListItem>
+                <ListItem>The Dark Knight</ListItem>
+                <ListItem>Inglourious Basterds</ListItem>
+                <ListItem>The Wolf of Wall Street</ListItem>
+                <ListItem>The Shawshank Redemption</ListItem>
+                <ListItem>Joker</ListItem>
+                <ListItem>NightCrawler</ListItem>
+                <ListItem>The Curious Case of Benjamin Button</ListItem>
+              </OrderedList>
+            </ModalBody>
+          </ModalContent>
+        </Modal>
+      </ChakraProvider>
     </Box>
   );
 }
