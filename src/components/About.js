@@ -16,10 +16,10 @@ import {
   ModalBody,
   ModalFooter,
   Button,
-  Checkbox,
   Link,
 } from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/react";
+import { LinkIcon } from "@chakra-ui/icons";
 import React from "react";
 
 export default function About() {
@@ -161,7 +161,7 @@ export default function About() {
                     textDecoration="none"
                     _hover={{ textColor: "#89CFF0" }}
                   >
-                    Wasootch Peak
+                    Wasootch Peak <LinkIcon />
                   </Link>
                 </ListItem>
                 <ListItem>
@@ -171,7 +171,7 @@ export default function About() {
                     textDecoration="none"
                     _hover={{ textColor: "#89CFF0" }}
                   >
-                    Mount Yamnuska
+                    Mount Yamnuska <LinkIcon />
                   </Link>
                 </ListItem>
                 <ListItem>
@@ -181,7 +181,7 @@ export default function About() {
                     textDecoration="none"
                     _hover={{ textColor: "#89CFF0" }}
                   >
-                    Mount Temple
+                    Mount Temple <LinkIcon />
                   </Link>
                 </ListItem>
                 <ListItem>
@@ -191,7 +191,7 @@ export default function About() {
                     textDecoration="none"
                     _hover={{ textColor: "#89CFF0" }}
                   >
-                    Cirque Peak
+                    Cirque Peak <LinkIcon />
                   </Link>
                 </ListItem>
                 <ListItem>
@@ -201,7 +201,7 @@ export default function About() {
                     textDecoration="none"
                     _hover={{ textColor: "#89CFF0" }}
                   >
-                    East End of Rundle
+                    East End of Rundle <LinkIcon />
                   </Link>
                 </ListItem>
 
@@ -212,7 +212,7 @@ export default function About() {
                     textDecoration="none"
                     _hover={{ textColor: "#89CFF0" }}
                   >
-                    Tent Ridge Horseshoe
+                    Tent Ridge Horseshoe <LinkIcon />
                   </Link>
                 </ListItem>
                 <ListItem>
@@ -222,7 +222,7 @@ export default function About() {
                     textDecoration="none"
                     _hover={{ textColor: "#89CFF0" }}
                   >
-                    Crypt Lake
+                    Crypt Lake <LinkIcon />
                   </Link>
                 </ListItem>
                 <ListItem>
@@ -232,7 +232,7 @@ export default function About() {
                     textDecoration="none"
                     _hover={{ textColor: "#89CFF0" }}
                   >
-                    Mount Lipsett
+                    Mount Lipsett <LinkIcon />
                   </Link>
                 </ListItem>
                 <ListItem>
@@ -242,7 +242,7 @@ export default function About() {
                     textDecoration="none"
                     _hover={{ textColor: "#89CFF0" }}
                   >
-                    Lady MacDonald
+                    Lady MacDonald <LinkIcon />
                   </Link>
                 </ListItem>
                 <ListItem>
@@ -252,7 +252,7 @@ export default function About() {
                     textDecoration="none"
                     _hover={{ textColor: "#89CFF0" }}
                   >
-                    Devil's Thumb
+                    Devil's Thumb <LinkIcon />
                   </Link>
                 </ListItem>
               </OrderedList>
