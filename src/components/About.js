@@ -148,7 +148,7 @@ export default function About() {
           <ModalContent color="#fff" pb="3px">
             <ModalCloseButton borderRadius="10px" _hover={{ bg: "#89CFF0" }} />
             <ModalHeader>My Top 10 Hikes</ModalHeader>
-            <ModalBody letterSpacing={0.8} lineHeight={1.7}>
+            <ModalBody lineHeight={1.7}>
               <OrderedList
                 p={{ base: "0px", sm: "5px" }}
                 fontSize={{ base: "md", sm: "md", md: "xl" }}
@@ -268,7 +268,7 @@ export default function About() {
           <ModalContent color="#fff">
             <ModalCloseButton borderRadius="10px" _hover={{ bg: "#89CFF0" }} />
             <ModalHeader>My Top 10 Movies</ModalHeader>
-            <ModalBody letterSpacing={0.8} lineHeight={1.7}>
+            <ModalBody letterSpacing={0} lineHeight={1.7}>
               <OrderedList
                 p={{ base: "0px", sm: "5px" }}
                 fontSize={{ base: "md", sm: "md", md: "xl" }}
