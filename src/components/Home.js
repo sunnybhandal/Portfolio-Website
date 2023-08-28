@@ -6,7 +6,7 @@ export default function Home() {
       <Stack mt="50px">
         <Box>
           <Image
-            height={{ base: "220px", sm: "220px", md: "270px" }}
+            height={{ base: "240px", md: "300px" }}
             borderRadius="20px"
             src="./img/selfiePic.png"
             alt=""
@@ -14,7 +14,7 @@ export default function Home() {
         </Box>
         <Stack spacing={2} align={{ base: "center", md: "normal" }}>
           <Text
-            fontSize={{ base: "2xl", md: "3xl" }}
+            fontSize={{ base: "3xl", md: "4xl" }}
             color="#89CFF0"
             fontWeight="semibold"
           >

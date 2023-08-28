@@ -217,6 +217,16 @@ export default function About() {
                 </ListItem>
                 <ListItem>
                   <Link
+                    href="https://www.alltrails.com/trail/canada/alberta/sarrail-ridge-via-rawson-lake-trail?u=i"
+                    isExternal
+                    textDecoration="none"
+                    _hover={{ textColor: "#89CFF0" }}
+                  >
+                    Sarrail Ridge <LinkIcon />
+                  </Link>
+                </ListItem>
+                <ListItem>
+                  <Link
                     href="https://www.alltrails.com/trail/canada/alberta/crypt-lake-trail-loop"
                     isExternal
                     textDecoration="none"
@@ -233,16 +243,6 @@ export default function About() {
                     _hover={{ textColor: "#89CFF0" }}
                   >
                     Mount Lipsett <LinkIcon />
-                  </Link>
-                </ListItem>
-                <ListItem>
-                  <Link
-                    href="https://www.alltrails.com/trail/canada/alberta/mount-lady-macdonald-trail"
-                    isExternal
-                    textDecoration="none"
-                    _hover={{ textColor: "#89CFF0" }}
-                  >
-                    Lady MacDonald <LinkIcon />
                   </Link>
                 </ListItem>
                 <ListItem>
